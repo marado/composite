@@ -1,0 +1,5 @@
+/* Configuration data for the tests.
+ */
+
+#define TEST_DATA_DIR "@CMAKE_CURRENT_SOURCE_DIR@"
+#define TEST_BIN_DIR  "@CMAKE_CURRENT_BINARY_DIR@"

@@ -1,0 +1,190 @@
+DEVELOPER INFO FOR COMPOSITE
+============================
+
+CONTENTS
+--------
+
+0. Where to Get Started
+1. Versions
+2. Making a Release and/or Bumping Versions
+3. Coding Conventions
+4. Documentation
+5. Recommended Dev Environment
+
+0. WHERE TO GET STARTED
+-----------------------
+
+Composite is in massive flux at the moment.  If you have an idea on
+how to help, tell us about it on the mailing list.  We can let you
+know how it will fit in with what's planned.  Links to everything you
+need are here:
+
+    http://gabe.is-a-geek.org/composite/
+
+Also look in the Documentation/ sub-directory for documentation on the
+application design and various sub-systems.
+
+1. VERSIONS
+-----------
+
+For the development of composite, versions shall be like this:
+
+0.000
+_ ___
+|  |
+|  +-- A non-negative integer, 001, 002, 003, etc.
+|
++----- Always zero while in development for 1.0
+
+RELEASES have even numbered versions (0.000, 0.002, 0.004, etc.).  In
+Git, there shall be a very small window where this version is set.
+
+DEVELOPMENT is done under even numbered versions (0.001, 0.003, 0.005,
+etc.).
+
+This is done to improve communication with people who test the
+development copies of Composite.
+
+2. MAKING A RELEASE AND/OR BUMPING VERSIONS
+-------------------------------------------
+
+Transitioning the code to remove some of the development hooks in
+order to make a release has several, easy-to-forget steps.  They are:
+
+  1. Remove the developer hook for 'version':
+
+     a. Near the top of CMakeLists.txt, set VERSION_MAJOR and
+        VERSION_MINOR.
+
+     b. Update ChangeLog (and linux/debian/changelog if it's not
+        symlinked)
+
+     c. linux/composite.desktop has a version in it that should be
+        updated.
+
+  2. Remove the 'developer warning': in data/composite.default.conf
+     change hydrogen_preferences/showDevelWarning to "false".
+
+  3. Make sure the manuals and translations are up-to-date in data/doc
+     (i.e. regenerate HTML).  Make sure that data/doc/manual.html
+     points to any new translations that have been contributed.
+
+  4. Commit your changes to Git.
+
+  5. Make a tarball of the release (gzipped).  Use gzip instead of
+     bzip2 for the folks on Windows.  Tarballs should be named:
+                   
+                    +--- Release version
+                    |
+                    |    +--- Extra release version info
+                  __|__ _|_
+        composite-0.001-rc2.tar.gz
+
+  6. If this is an RC release, the following steps are optional.
+
+  7. In a clean directory, test build the tarball in as many ways as
+     you can.  Call your friends.  Have a party.  Be sure to build
+     packages on as many systems as possible.  Be sure to install
+     and uninstall them, too.
+
+  8. Go ahead and build binary packages.  Follow the naming convention
+     for the platform that you're building for.
+
+       Linux:    composite_0.000rc2_distro_arch.pkg
+                 distro:  the GNU/Linux distro (e.g. 'lenny' for Debian)
+                 arch:    the processor it's built for (e.g. i686)
+                 pkg:     the package management system (deb, rpm)
+       OS X:     composite_0.000rc2_arch.dmg
+                 (arch is optional if the binary will work on both.)
+       Windows:  composite_0.000rc2.exe
+
+  9. At this time, Gabriel Beddingfield is doing all the tagging.
+     Tags should be cryptographically signed.
+
+  10. Make announcements.
+
+3. CODING CONVENTIONS
+---------------------
+
+Use 'stroustrup' indention.  (i.e. 4 spaces) Allow a little extra
+space within parentheses, but don't go overboard.  Like this:
+
+     while( (!done) || (five>six) ) {
+         foo();
+     }
+
+And not like this:
+
+     while ( ( ! done ) || ( five > six ) )
+         {
+             foo ( ) ;
+         }
+     }
+
+Lines should /not/ exceed 80 columns... unless you have a really good
+reason.
+
+All class declarations, even for internal (private) classes and
+structures, need to be in a header file.  The reason for this is to
+facilitate testing, profiling, and other types of diagnostics.
+
+4. DOCUMENTATION
+----------------
+
+Use Doxygen formatting.  JavaDoc syntax is preferred (/**, \brief,
+///<).
+
+Place the documentation with the /implementation/, and not necc. in
+the headers (declaration).  If you place a brief with both the
+declaration and the implementation... Doxygen will only use the one
+from the declaration -- so indicate somehow that it needs updating.
+
+5. RECOMMENDED DEV ENVIRONMENT
+------------------------------
+
+CMake supports out-of-tree builds... which is a Good Thing.  However,
+there are two problems with Composite: (1) the system data directory
+search path is designed for in-tree builds (left over from Hydrogen),
+and (2) CMake doesn't make an uninstall by default.
+
+Following is a recommended dev. setup.  While it works around the
+problem, I think it's a pretty good setup anyway.
+
+    A. Create a folder for building and for installing:
+
+        $ mkdir build-composite
+        $ mkdir install-composite
+
+    B. ENVIRONMENT VARIABLES
+
+    Add this near the end of ${HOME}/.bashrc
+
+        #############################################
+        ### COMPOSITE DEVELOPMENT                 ###
+        #############################################
+
+        COMPOSITE_PARALLEL=1
+        export COMPOSITE_PARALLEL
+        PATH=${HOME}/install-composite/bin:${PATH}
+        LD_LIBRARY_PATH=${HOME}/install-composite/lib:${LD_LIBRARY_PATH}
+
+        #############################################
+        ### END OF COMPOSITE DEV                  ###
+        #############################################
+
+    Then log off and log back on.  Note that COMPOSITE_PARALLEL sets
+    the -j parameter for doing parallel builds when packaging for
+    Debian.  Change it to the number of processors (or distcc hosts)
+    that you have.
+
+    C. When you build, build like this:
+
+        $ cmake -DCMAKE_INSTALL_PREFIX=${HOME}/install-composite /path/to/srcs
+        $ make && make install
+
+    D. Now, composite-gui is in your path.  To uninstall, just...
+
+        $ rm -rf ${HOME}/install-composite/*
+
+HAVE PHUN!
+-gabriel
