@@ -1,3 +1,11 @@
+composite (0.006-4) unstable; urgency=low
+
+  * Depends on jackd (Closes: #591326).
+  * Bump Standards.
+  * Add patch from upstream's git to prevent FTBFS with newer QTs.
+
+ -- Alessio Treglia <alessio@debian.org>  Mon, 02 Aug 2010 10:40:23 +0200
+
 composite (0.006-3) unstable; urgency=low
 
   * Ignore .pc directory.
