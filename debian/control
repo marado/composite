@@ -14,7 +14,7 @@ Build-Depends: debhelper (>= 7.0.50~),
  libboost-dev,
  libboost-test-dev,
  liblrdf-dev
-Standards-Version: 3.9.0
+Standards-Version: 3.9.1
 Vcs-Git: git://git.debian.org/git/pkg-multimedia/composite.git
 Vcs-Browser: http://git.debian.org/?p=pkg-multimedia/composite.git
 Homepage: http://gabe.is-a-geek.org/composite/
