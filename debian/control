@@ -23,6 +23,7 @@ Package: composite
 Architecture: any
 Depends: ${shlibs:Depends},
  composite-data (>= ${source:Version}),
+ jackd,
  ${misc:Depends}
 Provides: lv2-plugin
 Description: Live performance sequencer
