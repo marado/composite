@@ -1,2 +1,3 @@
 01-spelling_errors.patch
 02-qstring_int_error.patch
+10-binutils_gold.patch
