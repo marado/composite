@@ -12,7 +12,7 @@ Reviewed-by: Alessio Treglia <alessio@debian.org>
        Tritium
        test_utils_Tritium
        ${Boost_UNIT_TEST_FRAMEWORK_LIBRARIES}
-+      -lQtCore
++      ${QT_LIBRARIES}
        )
  
      ADD_TEST(${T} ${T})
