@@ -1,3 +1,9 @@
+composite (0.006-5) unstable; urgency=low
+
+  * Apply patch from Ilya Barygin to fix FTBFS with binutils-gold.
+
+ -- Alessio Treglia <alessio@debian.org>  Mon, 28 Feb 2011 12:29:35 +0100
+
 composite (0.006-4) unstable; urgency=low
 
   * Depends on jackd (Closes: #591326).
