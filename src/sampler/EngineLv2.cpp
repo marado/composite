@@ -40,7 +40,10 @@
 #include <lv2.h>
 #include <event.lv2/event.h>
 #include <event.lv2/event-helpers.h>
+#include <uri-map.lv2/uri-map.h>
 #include <cstring>
+
+#include <QCoreApplication>
 
 #define PLUGIN_URI "http://gabe.is-a-geek.org/composite/plugins/sampler/1"
 #define EVENT_URI "http://lv2plug.in/ns/ext/event"
@@ -56,6 +59,11 @@ namespace Composite
 {
 namespace Plugin
 {
+
+static T<QCoreApplication>::auto_ptr g_qapp;
+static T<Logger>::auto_ptr g_logger;
+static const char g_bogus_appname[] = "composite_sampler";
+static char* g_qapp_argv[] = { 0, 0 };
 
 void EngineLv2::connect_port(LV2_Handle instance,
 			     uint32_t port,
@@ -85,7 +93,6 @@ void EngineLv2::cleanup(LV2_Handle instance)
     EngineLv2* i;
     i = static_cast<EngineLv2*>(instance);
     delete i;
-    delete Logger::get_instance();
 }
 
 EngineLv2::EngineLv2() :
@@ -110,7 +117,6 @@ LV2_Handle EngineLv2::instantiate(const LV2_Descriptor * /*descriptor*/,
 				  const char * /*bundle_path*/,
 				  const LV2_Feature * const * features)
 {
-    Logger::create_instance();
     T<EngineLv2>::auto_ptr inst( new EngineLv2 );
     if( inst.get() ) {
 	inst->set_sample_rate( sample_rate );
@@ -119,11 +125,13 @@ LV2_Handle EngineLv2::instantiate(const LV2_Descriptor * /*descriptor*/,
 	    if( 0 == strncmp(EVENT_URI, feat->URI, strnlen(EVENT_URI, MAX_URI_LEN)) ) {
 		inst->_event_feature = static_cast<const LV2_Event_Feature*>(feat->data);
 	    }
+	    if( 0 == strncmp(LV2_URI_MAP_URI, feat->URI, strnlen(LV2_URI_MAP_URI, MAX_URI_LEN)) ) {
+		inst->_uri_map_feature = static_cast<const LV2_URI_Map_Feature*>(feat->data);
+	    }
 	    ++features;
 	}
 	return ((LV2_Handle) inst.release());
     }
-    Logger::set_logging_level("Info");
     return 0;
 }
 
@@ -158,6 +166,14 @@ void EngineLv2::_activate()
     _serializer.reset( Serialization::Serializer::create_standalone(this) );
     _obj_bdl.reset( new Composite::Plugin::ObjectBundle );
     _presets.reset( new Presets );
+    _lv2_midi_event_id = _uri_map_feature->uri_to_id(_uri_map_feature->callback_data,
+						     0,
+						     "http://lv2plug.in/ns/ext/midi#MidiEvent");
+    if(0 == _lv2_midi_event_id) {
+	ERRORLOG("Could not map MIDI Event URI <http://lv2plug.in/ns/ext/midi#MidiEvent>"
+		 " -- Midi Events will not be recognized.");
+    }
+						     
     if( _obj_bdl->loading() ) {
 	_serializer->load_uri("tritium:default/presets-plugin", *_obj_bdl, this);
 	while( _obj_bdl->state() != ObjectBundle::Ready ) {
@@ -402,7 +418,7 @@ void EngineLv2::process_events(uint32_t nframes)
 		_event_feature->callback_data,
 		&ev
 		);
-	} else {
+	} else if (_lv2_midi_event_id == ev.type ) {
 	    if( _midi_imp->translate(sev, ev.size, data) ) {
 		_seq->insert(sev);
 	    }
@@ -488,6 +504,14 @@ static void plugin_init()
 {
     LV2_Descriptor *d;
     typedef EngineLv2 p;
+    int argc = 1;
+    g_qapp_argv[0] = const_cast<char*>(g_bogus_appname);
+
+    g_qapp.reset( new QCoreApplication(argc, g_qapp_argv) );
+
+    Logger::create_instance();
+    g_logger.reset(Logger::get_instance());
+    Logger::set_logging_level("Info");
 
     pluginDescriptor = new LV2_Descriptor;
     d = pluginDescriptor;
