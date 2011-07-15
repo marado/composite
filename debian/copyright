@@ -1,9 +1,11 @@
-Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=135
-Name: Composite
-Maintainer: Gabriel M. Beddingfield <gabriel@teuton.org>
+Format: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=174
+Upstream-Name: Composite
+Upstream-Contact: Gabriel M. Beddingfield <gabriel@teuton.org>
 Source: http://gabe.is-a-geek.org/composite/releases/
 
-Copyright: 2009-2010 Gabriel M. Beddingfield <gabriel@teuton.org>
+Files: *
+Copyright:
+ 2009-2010 Gabriel M. Beddingfield <gabriel@teuton.org>
 License: GPL-2+
 
 Files: ./src/Tritium/*
@@ -15,7 +17,8 @@ License: GPL-2+
 Files: ./contrib/serverTools/hydrogen.php,
  ./src/Tritium/Tritium/timehelper.hpp,
  ./src/Tritium/src/timehelper.cpp
-Copyright: 2008-2009 Sebastian Moors <mauser@smoors.de>
+Copyright:
+ 2008-2009 Sebastian Moors <mauser@smoors.de>
 License: GPL-2+
 
 Files: ./src/3rd-party/lv2/event.lv2/*, 
@@ -35,7 +38,7 @@ License: LGPL-2.1+
 Files: ./src/3rd-party/lv2/lv2core-3.0/autowaf.py
 Copyright:
  2008 Nedko Arnaudov
- 2008 Dave Robillard]
+ 2008 Dave Robillard
 License: GPL-2+
 
 Files: ./src/3rd-party/lv2/lv2core-3.0/lv2core.lv2/lv2.ttl
@@ -70,21 +73,23 @@ License: GPL-2+
 Files: ./src/Tritium/Tritium/DataPath.hpp 
 Copyright:
  2002 Alessandro Cominu
- 2005 Jonathan Dempsey]
+ 2005 Jonathan Dempsey
 License: GPL-2+
 
-License: ./src/Tritium/Tritium/RingBufferNPT.hpp,
+Files: ./src/Tritium/Tritium/RingBufferNPT.hpp,
  ./src/Tritium/Tritium/RingBuffer.hpp
 Copyright:
  2000 Paul Davis & Benno Senoner
 License: GPL-2+
 
 Files: ./src/Tritium/Tritium/fx/ladspa.h 
-Copyright: 2000-2002 Richard W.E. Furse, Paul Barton-Davis
+Copyright:
+ 2000-2002 Richard W.E. Furse, Paul Barton-Davis
 License: LGPL-2.1+
 
 Files: ./debian/*
-Copyright: 2010 Alessio Treglia <alessio@debian.org>
+Copyright:
+ 2010 Alessio Treglia <alessio@debian.org>
 License: GPL-2+
 
 License: GPL-2+
@@ -97,12 +102,11 @@ License: GPL-2+
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
+Comment: You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  .
- You should have received a copy of the GNU General Public License
- along with this package; if not, write to the Free Software
- Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
-X-Comment: On Debian systems, the complete text of the GNU General
- Public License can be found in `/usr/share/common-licenses/GPL-2'.
+ On Debian systems, the complete text of the GNU General Public
+ License version 2 can be found in `/usr/share/common-licenses/GPL-2'.
 
 License: LGPL-2+
  This library is free software; you can redistribute it and/or
@@ -114,12 +118,11 @@ License: LGPL-2+
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  Library General Public License for more details.
+Comment: You should have received a copy of the GNU Library General Public
+ License along with this program.  If not, see <http://www.gnu.org/licenses/>.
  .
- You should have received a copy of the GNU Library General Public
- License along with this library; if not, write to the Free Software
- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-X-Comment: On Debian systems, the complete text of the GNU Library General
- Public License can be found in `/usr/share/common-licenses/LGPL-2'.
+ On Debian systems, the complete text of the GNU Library General Public
+ License version 2 can be found in `/usr/share/common-licenses/LGPL-2'.
 
 License: LGPL-2.1+
  This library is free software; you can redistribute it and/or
@@ -131,9 +134,8 @@ License: LGPL-2.1+
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  Lesser General Public License for more details.
+Comment: You should have received a copy of the GNU Lesser General Public
+ License along with this program.  If not, see <http://www.gnu.org/licenses/>.
  .
- You should have received a copy of the GNU Lesser General Public
- License along with this library; if not, write to the Free Software
- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-X-Comment: On Debian systems, the complete text of the GNU Lesser General
- Public License can be found in `/usr/share/common-licenses/LGPL-2.1'.
+ On Debian systems, the complete text of the GNU Lesser General Public
+ License version 2 can be found in `/usr/share/common-licenses/LGPL-2.1'.
