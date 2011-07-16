@@ -1,8 +1,11 @@
-composite (0.006.1-1) UNRELEASED; urgency=low
+composite (0.006.1-1) unstable; urgency=low
 
   * New upstream stable release.  
+  * Bump Standards
+  * removed patches applied upstream
+  * updated copyright file to rev. 174
 
- -- Jaromír Mikeš <mira.mikes@seznam.cz>  Fri, 15 Jul 2011 22:05:17 +0200
+ -- Jaromír Mikeš <mira.mikes@seznam.cz>  Sat, 16 Jul 2011 09:13:41 +0200
 
 composite (0.006-5) unstable; urgency=low
 
