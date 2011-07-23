@@ -1,3 +1,9 @@
+composite (0.006.2-1) UNRELEASED; urgency=low
+
+  * New upstream stable release (Closes: ##634070).  
+
+ -- Jaromír Mikeš <mira.mikes@seznam.cz>  Sat, 23 Jul 2011 21:31:39 +0200
+
 composite (0.006.1-1) unstable; urgency=low
 
   [ Jaromír Mikeš ]
