@@ -1,7 +1,9 @@
 composite (0.006.2-2) UNRELEASED; urgency=low
 
   * Provide xpm icon
-  * Fix desktop file to be shipped in right package  
+  * Fix desktop file to be shipped in right package
+  * Correct typo in cmake build type (s/RelWithoutDebInfo/RelWithDebInfo/)
+    thanks to Gabriel Beddingfield
 
  -- Jaromír Mikeš <mira.mikes@seznam.cz>  Sun, 24 Jul 2011 14:39:17 +0200
 
