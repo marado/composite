@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Composite
+GenericName=Composite
+Comment=Live performance sequencer
+Icon=composite32x32
+TryExec=composite-gui
+Exec=composite-gui %F
+Terminal=false
+Categories=AudioVideo;Audio;Qt;Music;
