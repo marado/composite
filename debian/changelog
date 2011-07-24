@@ -1,4 +1,4 @@
-composite (0.006.2-1) UNRELEASED; urgency=low
+composite (0.006.2-1) unstable; urgency=low
 
   * New upstream stable release (Closes: ##634070).  
 
