@@ -1,0 +1,5 @@
+?package(composite):needs="X11"\
+ section="Applications/Sound"\
+ title="Composite"\
+ icon="/usr/share/pixmaps/composite32x32.xpm"\
+ command="/usr/bin/composite-gui"
