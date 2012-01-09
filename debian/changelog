@@ -1,11 +1,15 @@
-composite (0.006.2-2) UNRELEASED; urgency=low
+composite (0.006.2+dfsg0-1) unstable; urgency=low
 
+  [ Jaromír Mikeš ]
   * Provide xpm icon
   * Fix desktop file to be shipped in right package
   * Correct typo in cmake build type (s/RelWithoutDebInfo/RelWithDebInfo/)
     thanks to Gabriel Beddingfield
 
- -- Jaromír Mikeš <mira.mikes@seznam.cz>  Sun, 24 Jul 2011 14:39:17 +0200
+  [ Alessio Treglia ]
+  * Remove an unnecessary copy of the waf blob (Closes: #654463).
+
+ -- Alessio Treglia <alessio@debian.org>  Mon, 09 Jan 2012 20:16:58 +0100
 
 composite (0.006.2-1) unstable; urgency=low
 
