@@ -2,19 +2,21 @@ Source: composite
 Section: sound
 Priority: optional
 Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
-Uploaders: Alessio Treglia <alessio@debian.org>,
+Uploaders:
+ Alessio Treglia <alessio@debian.org>,
  Jaromír Mikeš <mira.mikes@seznam.cz>
-Build-Depends: debhelper (>= 7.0.50~),
+Build-Depends:
  cmake,
- libsndfile1-dev,
- libjack-dev,
- lv2-dev,
- libflac++-dev,
- libtar-dev,
- libqt4-dev,
+ debhelper (>= 7.0.50~),
  libboost-dev,
  libboost-test-dev,
- liblrdf-dev
+ libflac++-dev,
+ libjack-dev,
+ liblrdf-dev,
+ libqt4-dev,
+ libsndfile1-dev,
+ libtar-dev,
+ lv2-dev
 Standards-Version: 3.9.2
 Vcs-Git: git://git.debian.org/git/pkg-multimedia/composite.git
 Vcs-Browser: http://git.debian.org/?p=pkg-multimedia/composite.git
@@ -22,11 +24,13 @@ Homepage: http://gabe.is-a-geek.org/composite/
 
 Package: composite
 Architecture: any
-Depends: ${shlibs:Depends},
+Depends:
  composite-data (>= ${source:Version}),
  jackd,
- ${misc:Depends}
-Provides: lv2-plugin
+ ${misc:Depends},
+ ${shlibs:Depends}
+Provides:
+ lv2-plugin
 Description: Live performance sequencer
  Composite is a software application/system for real-time, in-performance
  sequencing, sampling, and looping. It has a strong emphasis on the needs
@@ -38,8 +42,10 @@ Description: Live performance sequencer
 
 Package: composite-data
 Architecture: all
-Depends: ${misc:Depends}
-Suggests: composite
+Depends:
+ ${misc:Depends}
+Suggests:
+ composite
 Description: Live performance sequencer (data files)
  Composite is a software application/system for real-time, in-performance
  sequencing, sampling, and looping. It has a strong emphasis on the needs
@@ -52,7 +58,8 @@ Package: composite-dbg
 Section: debug
 Priority: extra
 Architecture: any
-Depends: composite (= ${binary:Version}),
+Depends:
+ composite (= ${binary:Version}),
  ${misc:Depends}
 Description: Live performance sequencer (debugging symbols)
  Composite is a software application/system for real-time, in-performance
