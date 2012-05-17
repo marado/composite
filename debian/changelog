@@ -1,3 +1,13 @@
+composite (0.006.2+dfsg0-2) unstable; urgency=low
+
+  * Replace lv2core with lv2-dev in Build-Depends.
+  * debian/copyright:
+    - Update to machine-readable format.
+    - Group files by license.
+  * Bump Standards.
+
+ -- Alessio Treglia <alessio@debian.org>  Thu, 17 May 2012 10:40:59 +0200
+
 composite (0.006.2+dfsg0-1) unstable; urgency=low
 
   [ Jaromír Mikeš ]
