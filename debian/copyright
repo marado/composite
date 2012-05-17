@@ -1,4 +1,4 @@
-Format: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=174
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Composite
 Upstream-Contact: Gabriel M. Beddingfield <gabriel@teuton.org>
 Source: http://gabe.is-a-geek.org/composite/releases/
@@ -6,28 +6,21 @@ Source: http://gabe.is-a-geek.org/composite/releases/
 Files: *
 Copyright:
  2009-2010 Gabriel M. Beddingfield <gabriel@teuton.org>
-License: GPL-2+
-
-Files: ./src/Tritium/*
-Copyright:
- 2002-2008 by Alex >Comix< Cominu <comix@users.sourceforge.net>
- 2009 Gabriel M. Beddingfield <gabriel@teuton.org>
-License: GPL-2+
-
-Files: ./contrib/serverTools/hydrogen.php,
- ./src/Tritium/Tritium/timehelper.hpp,
- ./src/Tritium/src/timehelper.cpp
-Copyright:
  2008-2009 Sebastian Moors <mauser@smoors.de>
+ 2005 Jonathan Dempsey
+ 2002-2008 by Alex >Comix< Cominu <comix@users.sourceforge.net>
+ 2000 Paul Davis & Benno Senoner
 License: GPL-2+
 
-Files: ./src/3rd-party/lv2/event.lv2/*,
+Files: src/3rd-party/lv2/event.lv2/*
 Copyright:
  2006-2007 Lars Luthman <lars.luthman@gmail.com>
  2008-2009 Dave Robillard <http://drobilla.net>
 License: LGPL-2+
 
-Files: ./src/3rd-party/lv2/lv2.h
+Files:
+ src/3rd-party/lv2/lv2.h
+ src/Tritium/Tritium/fx/ladspa.h
 Copyright:
  2006-2008 Steve Harris
  2006-2008 Dave Robillard
@@ -35,17 +28,77 @@ Copyright:
  2000-2002 Paul Barton-Davis
 License: LGPL-2.1+
 
-Files: ./src/3rd-party/lv2/lv2core-3.0/autowaf.py
+Files: src/3rd-party/lv2/lv2core-3.0/autowaf.py
 Copyright:
  2008 Nedko Arnaudov
  2008 Dave Robillard
 License: GPL-2+
 
-Files: ./src/3rd-party/lv2/lv2core-3.0/lv2core.lv2/lv2.ttl
+Files: src/3rd-party/lv2/lv2core-3.0/lv2core.lv2/lv2.ttl
 Copyright:
  2006-2008 Steve Harris
  2006-2008 Dave Robillard
-License: other
+License: Expat
+
+Files: debian/*
+Copyright:
+ 2010 Alessio Treglia <alessio@debian.org>
+License: GPL-2+
+
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+Comment:
+ On Debian systems, the complete text of the GNU General Public
+ License version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+License: LGPL-2+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+Comment:
+ On Debian systems, the complete text of the GNU Library General Public
+ License version 2 can be found in `/usr/share/common-licenses/LGPL-2'.
+ .
+ You should have received a copy of the GNU Library General Public
+ License along with this program.  If not, see
+ <http://www.gnu.org/licenses/>.
+
+License: LGPL-2.1+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+Comment:
+ On Debian systems, the complete text of the GNU Lesser General Public
+ License version 2.1 can be found in `/usr/share/common-licenses/LGPL-2.1'.
+ .
+ You should have received a copy of the GNU Lesser General Public
+ License along with this program.  If not, see
+ <http://www.gnu.org/licenses/>.
+
+License: Expat
  Permission is hereby granted, free of charge, to any person obtaining a
  copy of this software and associated documentation files (the "Software"),
  to deal in the Software without restriction, including without limitation
@@ -63,79 +116,3 @@ License: other
  OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  OTHER DEALINGS IN THE SOFTWARE.
-
-Files: ./src/Tritium/*
-Copyright:
- 2002-2008 by Alex >Comix< Cominu <comix@users.sourceforge.net>
- 2009 Gabriel M. Beddingfield <gabriel@teuton.org>
-License: GPL-2+
-
-Files: ./src/Tritium/Tritium/DataPath.hpp
-Copyright:
- 2002 Alessandro Cominu
- 2005 Jonathan Dempsey
-License: GPL-2+
-
-Files: ./src/Tritium/Tritium/RingBufferNPT.hpp,
- ./src/Tritium/Tritium/RingBuffer.hpp
-Copyright:
- 2000 Paul Davis & Benno Senoner
-License: GPL-2+
-
-Files: ./src/Tritium/Tritium/fx/ladspa.h
-Copyright:
- 2000-2002 Richard W.E. Furse, Paul Barton-Davis
-License: LGPL-2.1+
-
-Files: ./debian/*
-Copyright:
- 2010 Alessio Treglia <alessio@debian.org>
-License: GPL-2+
-
-License: GPL-2+
- This package is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 2 of the License, or
- (at your option) any later version.
- .
- This package is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
-Comment: You should have received a copy of the GNU General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
- .
- On Debian systems, the complete text of the GNU General Public
- License version 2 can be found in `/usr/share/common-licenses/GPL-2'.
-
-License: LGPL-2+
- This library is free software; you can redistribute it and/or
- modify it under the terms of the GNU Library General Public
- License as published by the Free Software Foundation; either
- version 2 of the License, or (at your option) any later version.
- .
- This library is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- Library General Public License for more details.
-Comment: You should have received a copy of the GNU Library General Public
- License along with this program.  If not, see <http://www.gnu.org/licenses/>.
- .
- On Debian systems, the complete text of the GNU Library General Public
- License version 2 can be found in `/usr/share/common-licenses/LGPL-2'.
-
-License: LGPL-2.1+
- This library is free software; you can redistribute it and/or
- modify it under the terms of the GNU Lesser General Public
- License as published by the Free Software Foundation; either
- version 2.1 of the License, or (at your option) any later version.
- .
- This library is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- Lesser General Public License for more details.
-Comment: You should have received a copy of the GNU Lesser General Public
- License along with this program.  If not, see <http://www.gnu.org/licenses/>.
- .
- On Debian systems, the complete text of the GNU Lesser General Public
- License version 2.1 can be found in `/usr/share/common-licenses/LGPL-2.1'.
