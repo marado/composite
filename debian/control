@@ -17,7 +17,7 @@ Build-Depends:
  libsndfile1-dev,
  libtar-dev,
  lv2-dev
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Vcs-Git: git://git.debian.org/git/pkg-multimedia/composite.git
 Vcs-Browser: http://git.debian.org/?p=pkg-multimedia/composite.git
 Homepage: http://gabe.is-a-geek.org/composite/
