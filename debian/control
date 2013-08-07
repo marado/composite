@@ -7,7 +7,7 @@ Uploaders:
  Jaromír Mikeš <mira.mikes@seznam.cz>
 Build-Depends:
  cmake,
- debhelper (>= 7.0.50~),
+ debhelper (>= 9),
  libboost-dev,
  libboost-test-dev,
  libflac++-dev,
