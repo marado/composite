@@ -18,8 +18,8 @@ Build-Depends:
  libtar-dev,
  lv2-dev
 Standards-Version: 3.9.3
-Vcs-Git: git://git.debian.org/git/pkg-multimedia/composite.git
-Vcs-Browser: http://git.debian.org/?p=pkg-multimedia/composite.git
+Vcs-Git: git://anonscm.debian.org/pkg-multimedia/composite.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-multimedia/composite.git
 Homepage: http://gabe.is-a-geek.org/composite/
 
 Package: composite
