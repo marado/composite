@@ -43,6 +43,7 @@ License: Expat
 Files: debian/*
 Copyright:
  2010 Alessio Treglia <alessio@debian.org>
+ 2011-2013 Jaromír Mikeš <mira.mikes@seznam.cz>
 License: GPL-2+
 
 License: GPL-2+
