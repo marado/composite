@@ -1,6 +1,12 @@
-composite (0.006.2+dfsg0-3) UNRELEASED; urgency=low
+composite (0.006.2+dfsg0-3) unstable; urgency=low
 
-  * Start new upload.
+  * Set dh/compat 9
+  * Fix VCS canonical URLs.
+  * Bump standards.
+  * Update copyright file.
+  * Added Keywords entry to desktop file.
+  * Fixed version mangling in watch file.
+  * Added postinst postrm files.
 
  -- Jaromír Mikeš <mira.mikes@seznam.cz>  Thu, 08 Aug 2013 01:56:40 +0200
 
