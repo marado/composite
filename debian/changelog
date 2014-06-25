@@ -1,3 +1,9 @@
+composite (0.006.2+dfsg0-4) unstable; urgency=medium
+
+  * Build-depend on zlib1g-dev (Closes: #750321).
+
+ -- Alessio Treglia <alessio@debian.org>  Wed, 25 Jun 2014 19:32:35 +0100
+
 composite (0.006.2+dfsg0-3) unstable; urgency=low
 
   * Set dh/compat 9
