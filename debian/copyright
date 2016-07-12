@@ -19,7 +19,6 @@ Copyright:
 License: LGPL-2+
 
 Files:
- src/3rd-party/lv2/lv2.h
  src/Tritium/Tritium/fx/ladspa.h
 Copyright:
  2006-2008 Steve Harris
@@ -43,7 +42,7 @@ License: Expat
 Files: debian/*
 Copyright:
  2010 Alessio Treglia <alessio@debian.org>
- 2011-2013 Jaromír Mikeš <mira.mikes@seznam.cz>
+ 2011-2016 Jaromír Mikeš <mira.mikes@seznam.cz>
 License: GPL-2+
 
 License: GPL-2+
