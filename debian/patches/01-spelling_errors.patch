@@ -8,6 +8,8 @@ Forwarded: gabrbedd@gmail.com
  src/Tritium/src/Serialization.cpp |    2 +-
  4 files changed, 4 insertions(+), 4 deletions(-)
 
+Index: composite/data/xml/tritium-1.xsd
+===================================================================
 --- composite.orig/data/xml/tritium-1.xsd
 +++ composite/data/xml/tritium-1.xsd
 @@ -61,7 +61,7 @@
@@ -19,6 +21,8 @@ Forwarded: gabrbedd@gmail.com
        namespace above will be used until a non-backwards-compatable
        change is made.  For example, when first published the only
        elements was &lt;presets&gt;.  Because &lt;tritium&gt; has a lax
+Index: composite/src/Tritium/src/LocalFileMng.cpp
+===================================================================
 --- composite.orig/src/Tritium/src/LocalFileMng.cpp
 +++ composite/src/Tritium/src/LocalFileMng.cpp
 @@ -960,7 +960,7 @@ namespace Tritium
@@ -30,6 +34,8 @@ Forwarded: gabrbedd@gmail.com
                          .arg(filename) );
              return true;
          }
+Index: composite/src/Tritium/src/Preferences.cpp
+===================================================================
 --- composite.orig/src/Tritium/src/Preferences.cpp
 +++ composite/src/Tritium/src/Preferences.cpp
 @@ -68,7 +68,7 @@ Preferences::Preferences()
@@ -41,6 +47,8 @@ Forwarded: gabrbedd@gmail.com
  		QString sLadspaPath = QString::fromLocal8Bit(ladpath);
  		int pos;
  		while ( ( pos = sLadspaPath.indexOf( ":" ) ) != -1 ) {
+Index: composite/src/Tritium/src/Serialization.cpp
+===================================================================
 --- composite.orig/src/Tritium/src/Serialization.cpp
 +++ composite/src/Tritium/src/Serialization.cpp
 @@ -1402,7 +1402,7 @@ void SerializationQueue::handle_load_ins
@@ -51,4 +59,17 @@ Forwarded: gabrbedd@gmail.com
 +        // Backward compatibility mode (Hydrogen <= 0.9.0)
          // Only one layer.
          QString sFilename = LocalFileMng::readXmlString( instrumentNode, "filename", "" );
+ 
+Index: composite/src/composite-gui/PatternEditor/DrumPatternEditor.cpp
+===================================================================
+--- composite.orig/src/composite-gui/PatternEditor/DrumPatternEditor.cpp
++++ composite/src/composite-gui/PatternEditor/DrumPatternEditor.cpp
+@@ -88,7 +88,7 @@ void DrumPatternEditor::updateEditor()
+ 	// check engine state
+ 	int state = engine->getState();
+ 	if ( state != Engine::StateReady ) {
+-		ERRORLOG( "FIXME: skipping pattern editor update (state shoud be READY or PLAYING)" );
++		ERRORLOG( "FIXME: skipping pattern editor update (state should be READY or PLAYING)" );
+ 		return;
+ 	}
  
