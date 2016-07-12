@@ -1,6 +1,6 @@
 Description: Fix build with gcc-6.
 Author: Jaromír Mikeš <mira.mikes@seznam.cz>
-Forwarded: no
+Forwarded: gabrbedd@gmail.com
 
 Index: composite/src/Tritium/src/LocalFileMng.cpp
 ===================================================================
