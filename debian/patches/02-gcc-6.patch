@@ -1,0 +1,17 @@
+Description: Fix build with gcc-6.
+Author: Jaromír Mikeš <mira.mikes@seznam.cz>
+Forwarded: no
+
+Index: composite/src/Tritium/src/LocalFileMng.cpp
+===================================================================
+--- composite.orig/src/Tritium/src/LocalFileMng.cpp
++++ composite/src/Tritium/src/LocalFileMng.cpp
+@@ -733,7 +733,7 @@ namespace Tritium
+ 
+         std::string playlistInfoFile = patternname;
+         std::ifstream verify( playlistInfoFile.c_str() , std::ios::in | std::ios::binary );
+-        if ( verify == NULL ) {
++        if ( verify.fail() ) {
+             //ERRORLOG( "Load Playlist: Data file " + playlistInfoFile + " not found." );
+             return NULL;
+         }
