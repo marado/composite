@@ -54,18 +54,3 @@ Description: Live performance sequencer (data files)
  engine, which also includes LV2 plugins.
  .
  This package contains the data files for Composite.
-
-Package: composite-dbg
-Section: debug
-Priority: extra
-Architecture: any
-Depends:
- composite (= ${binary:Version}),
- ${misc:Depends}
-Description: Live performance sequencer (debugging symbols)
- Composite is a software application/system for real-time, in-performance
- sequencing, sampling, and looping. It has a strong emphasis on the needs
- of live performance improvisation. It is built around the Tritium audio
- engine, which also includes LV2 plugins.
- .
- This package contains the debugging symbols.
