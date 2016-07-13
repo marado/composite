@@ -6,7 +6,7 @@ composite (0.006.2+dfsg0-5) unstable; urgency=medium
   * Fix some hardening.
   * Update copyright file.
   * Replace scripts by triggers file.
-  * Add patch to fix FTBFS with gcc-6.
+  * Add patch to fix FTBFS with gcc-6 (Closes: #811844).
   * Fix more spelling.
   * Dropping dbg package.
   * Update watch file for gitlab.
