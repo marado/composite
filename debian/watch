@@ -1,7 +1,3 @@
 version=3
 opts=dversionmangle=s/.dfsg\d+// \
  https://gitlab.com/composite/Composite/tags \/composite\/composite\/repository\/archive.tar.gz\?ref=composite-([\d.]*)
-
-
-#opts=filenamemangle=s/.*\.tar\.gz\?ref=v?(\d\S*)/composite-$1\.tar\.gz/g \
-#https://gitlab.com/composite/Composite/tags .*archive\.tar\.gz\?ref=v?(\d\S*)
