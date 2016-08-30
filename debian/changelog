@@ -1,3 +1,10 @@
+composite (0.006.2+dfsg0-6) UNRELEASED; urgency=medium
+
+  * Team upload.
+  *
+
+ -- James Cowgill <jcowgill@debian.org>  Tue, 30 Aug 2016 22:43:20 +0100
+
 composite (0.006.2+dfsg0-5) unstable; urgency=medium
 
   * Bump Standards.
