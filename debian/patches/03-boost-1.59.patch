@@ -1,0 +1,134 @@
+Description: Replace BOOST_MESSAGE with BOOST_TEST_MESSAGE
+ In Boost 1.59, BOOST_MESSAGE was finally removed after being deprecated for
+ many years. Its new name is BOOST_TEST_MESSAGE.
+Author: James Cowgill <jcowgill@debian.org>
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/src/Tritium/test/README.test.txt
++++ b/src/Tritium/test/README.test.txt
+@@ -16,5 +16,5 @@ so well documented).
+ 
+ --log_level=all
+ 
+-    Allows all output, e.g. BOOST_MESSAGE()'s.  By default a
+-    BOOST_MESSAGE() will be suppressed.
++    Allows all output, e.g. BOOST_TEST_MESSAGE()'s.  By default a
++    BOOST_TEST_MESSAGE() will be suppressed.
+--- a/src/Tritium/test/t_Sample.cpp
++++ b/src/Tritium/test/t_Sample.cpp
+@@ -217,8 +217,8 @@ TEST_CASE( 020_sine_waves )
+ 	    == 0.0 );
+     }
+ 
+-    BOOST_MESSAGE("Max sine wave error (dB):");
+-    BOOST_MESSAGE(10.0*log10(e_max));
++    BOOST_TEST_MESSAGE("Max sine wave error (dB):");
++    BOOST_TEST_MESSAGE(10.0*log10(e_max));
+ }
+ 
+ TEST_CASE( 030_triangle_waves )
+@@ -294,8 +294,8 @@ TEST_CASE( 030_triangle_waves )
+ 	    == 0.0 );
+     }
+ 
+-    BOOST_MESSAGE("Max triangle wave error (dB):");
+-    BOOST_MESSAGE(10.0*log10(e_max));
++    BOOST_TEST_MESSAGE("Max triangle wave error (dB):");
++    BOOST_TEST_MESSAGE(10.0*log10(e_max));
+ }
+ 
+ TEST_END()
+--- a/src/Tritium/test/t_SimpleTransportMaster.cpp
++++ b/src/Tritium/test/t_SimpleTransportMaster.cpp
+@@ -129,9 +129,9 @@ TEST_CASE( 020_start_stop )
+ 	CK( pos.beats_per_minute == 100.0 );
+ 	map_frame_to_bbt(frame, bar, beat, tick, bbt_offset, __bar_start_tick, pos.frames_per_tick());
+ 	    
+-	BOOST_MESSAGE("pos B:b.t.o @F = " << pos.bar << ":" << pos.beat << "."
++	BOOST_TEST_MESSAGE("pos B:b.t.o @F = " << pos.bar << ":" << pos.beat << "."
+ 		      << pos.tick << "." << pos.bbt_offset << " @" << pos.frame);
+-	BOOST_MESSAGE("cal B:b.t.o @F = " << bar << ":" << beat << "."
++	BOOST_TEST_MESSAGE("cal B:b.t.o @F = " << bar << ":" << beat << "."
+ 		      << tick << "." << bbt_offset << " @" << frame);
+ 	CK( pos.frame == frame );
+ 	CK( pos.bar == bar );
+--- a/src/Tritium/test/t_Song.cpp
++++ b/src/Tritium/test/t_Song.cpp
+@@ -50,7 +50,7 @@ namespace THIS_NAMESPACE
+ 	    Logger::create_instance();
+ 	    T<Preferences>::shared_ptr prefs( new Preferences );
+ 	    engine = new Engine(prefs);
+-	    BOOST_MESSAGE(song_file_name);
++	    BOOST_TEST_MESSAGE(song_file_name);
+ 	    s = Song::load(engine, song_file_name);
+ 	    BOOST_REQUIRE( s != 0 );
+ 	}
+@@ -155,7 +155,7 @@ TEST_CASE( 010_defaults )
+ 
+ TEST_CASE( 015_song_loading )
+ {
+-    BOOST_MESSAGE( s->get_name().toStdString() );
++    BOOST_TEST_MESSAGE( s->get_name().toStdString() );
+ 
+     // Metadata
+     CK( s->get_name() == "Jazzy" );
+--- a/src/Tritium/test/t_TransportPosition.cpp
++++ b/src/Tritium/test/t_TransportPosition.cpp
+@@ -248,7 +248,7 @@ TEST_CASE( 040_normalize )
+     CK( 349 == a.bar );
+     CK( 7 == a.beat );
+     CK( 41 == a.tick );
+-    BOOST_MESSAGE( a.bbt_offset );
++    BOOST_TEST_MESSAGE( a.bbt_offset );
+     CK( fabs(165 - a.bbt_offset) <= 1.0 );
+     CK( 67921 == a.bar_start_tick );
+     CK( TT_DRIFT(frame, a.frame, 1) );    
+@@ -322,7 +322,7 @@ TEST_CASE( 050_increment )
+     CK( 0 == x.tick );
+     CK( TT_DRIFT( 115.0, x.bbt_offset, k+2) );
+     CK( TT_DRIFT( frame, x.frame, k+2 ) );
+-    BOOST_MESSAGE( "++ drift = " << (frame - x.frame) );
++    BOOST_TEST_MESSAGE( "++ drift = " << (frame - x.frame) );
+ }
+ 
+ TEST_CASE( 060_decrement )
+@@ -378,7 +378,7 @@ TEST_CASE( 060_decrement )
+ 	--k; --p;
+     }
+     double drift = fabs( frame - double(p.frame) );
+-    BOOST_MESSAGE( "-- drift @ 768 = " << drift );
++    BOOST_TEST_MESSAGE( "-- drift @ 768 = " << drift );
+     CK( fabs(drift) < 10.0 );
+     CK( p.bar == 99 );
+     CK( p.beat == 1 );
+@@ -394,7 +394,7 @@ TEST_CASE( 060_decrement )
+     for( k=2374 ; k > 0 ; --k ) --x;
+     frame -= fpt * 2374.0;
+     drift = frame - double(x.frame);
+-    BOOST_MESSAGE( "-- drift @ 2375 = " << drift );
++    BOOST_TEST_MESSAGE( "-- drift @ 2375 = " << drift );
+     CK( fabs(drift) < 50.0 );
+     CK( 346 == x.bar );
+     CK( 2 == x.beat );
+--- a/src/Tritium/test/test_macros.hpp
++++ b/src/Tritium/test/test_macros.hpp
+@@ -31,7 +31,7 @@
+  * A nice side-effect of using these macros is that it abstracts out
+  * the testing framework that is being used.  However, that is not the
+  * intention.  For example, it's perfectly fine to use the
+- * BOOST_MESSAGE() macro, or anything else the BOOST framework
++ * BOOST_TEST_MESSAGE() macro, or anything else the BOOST framework
+  * provides.
+  *
+  * To use it, make a copy of t_Foo.cpp.template and season to taste.
+--- a/src/Tritium/test/test_utils.cpp
++++ b/src/Tritium/test/test_utils.cpp
+@@ -114,7 +114,7 @@ namespace TritiumTest
+ 	rv = (fabs(ActDrift) <= max_drift);
+ 
+ 	if( ! rv ) {
+-	    BOOST_MESSAGE("In " << File << "(" << Line << ") "
++	    BOOST_TEST_MESSAGE("In " << File << "(" << Line << ") "
+ 			  << "Too much drift: True(" << TrueVal << ") "
+ 			  << "- Frame(" << Frame << ") = " << ActDrift
+ 			  << " [Limit is +/- " << max_drift
