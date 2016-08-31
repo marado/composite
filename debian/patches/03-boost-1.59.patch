@@ -2,6 +2,7 @@ Description: Replace BOOST_MESSAGE with BOOST_TEST_MESSAGE
  In Boost 1.59, BOOST_MESSAGE was finally removed after being deprecated for
  many years. Its new name is BOOST_TEST_MESSAGE.
 Author: James Cowgill <jcowgill@debian.org>
+Forwarded: gabrbedd@gmail.com
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- a/src/Tritium/test/README.test.txt
