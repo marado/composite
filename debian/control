@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
 Uploaders:
  Alessio Treglia <alessio@debian.org>,
- Jaromír Mikeš <mira.mikes@seznam.cz>
+ Jaromír Mikeš <mira.mikes@seznam.cz>,
 Build-Depends:
  cmake,
  debhelper (>= 9),
@@ -17,7 +17,7 @@ Build-Depends:
  libsndfile1-dev,
  libtar-dev,
  lv2-dev,
- zlib1g-dev
+ zlib1g-dev,
 Standards-Version: 3.9.8
 Vcs-Git: https://anonscm.debian.org/git/pkg-multimedia/composite.git
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-multimedia/composite.git
@@ -29,7 +29,7 @@ Depends:
  composite-data (>= ${source:Version}),
  jackd,
  ${misc:Depends},
- ${shlibs:Depends}
+ ${shlibs:Depends},
 Provides:
  lv2-plugin
 Description: Live performance sequencer
@@ -44,7 +44,7 @@ Description: Live performance sequencer
 Package: composite-data
 Architecture: all
 Depends:
- ${misc:Depends}
+ ${misc:Depends},
 Suggests:
  composite
 Description: Live performance sequencer (data files)
