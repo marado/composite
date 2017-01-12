@@ -8,8 +8,6 @@ Forwarded: gabrbedd@gmail.com
  src/Tritium/src/Serialization.cpp |    2 +-
  4 files changed, 4 insertions(+), 4 deletions(-)
 
-Index: composite/data/xml/tritium-1.xsd
-===================================================================
 --- composite.orig/data/xml/tritium-1.xsd
 +++ composite/data/xml/tritium-1.xsd
 @@ -61,7 +61,7 @@
@@ -21,11 +19,9 @@ Index: composite/data/xml/tritium-1.xsd
        namespace above will be used until a non-backwards-compatable
        change is made.  For example, when first published the only
        elements was &lt;presets&gt;.  Because &lt;tritium&gt; has a lax
-Index: composite/src/Tritium/src/LocalFileMng.cpp
-===================================================================
 --- composite.orig/src/Tritium/src/LocalFileMng.cpp
 +++ composite/src/Tritium/src/LocalFileMng.cpp
-@@ -960,7 +960,7 @@ namespace Tritium
+@@ -960,7 +960,7 @@
              return false;
          } else  {
              WARNINGLOG( QString("File '%1' is being read in "
@@ -34,11 +30,9 @@ Index: composite/src/Tritium/src/LocalFileMng.cpp
                          .arg(filename) );
              return true;
          }
-Index: composite/src/Tritium/src/Preferences.cpp
-===================================================================
 --- composite.orig/src/Tritium/src/Preferences.cpp
 +++ composite/src/Tritium/src/Preferences.cpp
-@@ -68,7 +68,7 @@ Preferences::Preferences()
+@@ -68,7 +68,7 @@
  
  	char * ladpath = getenv( "LADSPA_PATH" );	// read the Environment variable LADSPA_PATH
  	if ( ladpath ) {
@@ -47,11 +41,9 @@ Index: composite/src/Tritium/src/Preferences.cpp
  		QString sLadspaPath = QString::fromLocal8Bit(ladpath);
  		int pos;
  		while ( ( pos = sLadspaPath.indexOf( ":" ) ) != -1 ) {
-Index: composite/src/Tritium/src/Serialization.cpp
-===================================================================
 --- composite.orig/src/Tritium/src/Serialization.cpp
 +++ composite/src/Tritium/src/Serialization.cpp
-@@ -1402,7 +1402,7 @@ void SerializationQueue::handle_load_ins
+@@ -1402,7 +1402,7 @@
      QDomNode filenameNode = instrumentNode.firstChildElement( "filename" );
  
      if( !filenameNode.isNull() ) {
@@ -60,11 +52,9 @@ Index: composite/src/Tritium/src/Serialization.cpp
          // Only one layer.
          QString sFilename = LocalFileMng::readXmlString( instrumentNode, "filename", "" );
  
-Index: composite/src/composite-gui/PatternEditor/DrumPatternEditor.cpp
-===================================================================
 --- composite.orig/src/composite-gui/PatternEditor/DrumPatternEditor.cpp
 +++ composite/src/composite-gui/PatternEditor/DrumPatternEditor.cpp
-@@ -88,7 +88,7 @@ void DrumPatternEditor::updateEditor()
+@@ -88,7 +88,7 @@
  	// check engine state
  	int state = engine->getState();
  	if ( state != Engine::StateReady ) {
@@ -73,3 +63,21 @@ Index: composite/src/composite-gui/PatternEditor/DrumPatternEditor.cpp
  		return;
  	}
  
+--- composite.orig/src/Tritium/src/IO/JackOutput.cpp
++++ composite/src/Tritium/src/IO/JackOutput.cpp
+@@ -130,13 +130,13 @@
+ 		DEBUGLOG( "Could not connect so saved out-ports. Connecting to first pair of in-ports" );
+ 		const char ** portnames = jack_get_ports ( client, NULL, NULL, JackPortIsInput );
+ 		if ( !portnames || !portnames[0] || !portnames[1] ) {
+-			ERRORLOG( "Could't locate two Jack input port" );
++			ERRORLOG( "Couldn't locate two Jack input port" );
+ 			m_engine->raiseError( Engine::JACK_CANNOT_CONNECT_OUTPUT_PORT );
+ 			return 2;
+ 		}
+ 		if ( jack_connect( client, jack_port_name( output_port_1 ), portnames[0] ) != 0 ||
+ 		        jack_connect( client, jack_port_name( output_port_2 ), portnames[1] ) != 0 ) {
+-			ERRORLOG( "Could't connect to first pair of Jack input ports" );
++			ERRORLOG( "Couldn't connect to first pair of Jack input ports" );
+ 			m_engine->raiseError( Engine::JACK_CANNOT_CONNECT_OUTPUT_PORT );
+ 			return 2;
+ 		}
